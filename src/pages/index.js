@@ -1,21 +1,48 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
+import { useWindowScrollPosition, useWindowSize } from "../lib"
+import Layout from "../components/Layout"
+import Logo from "../components/Logo"
+import Hero from "../components/Hero/"
+import HomeProductGrid from "../components/HomeProductGrid"
+import { heroOverflow } from "../lib/styles"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const IndexPage = ({ data }) => {
+  const { y: scrollY } = useWindowScrollPosition()
+  const { innerHeight } = useWindowSize()
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  const scrollThreshold = innerHeight * 0.7
+  const scrolledDown = scrollY > scrollThreshold
+  const logoStyle = {
+    position: "sticky",
+    top: 0,
+    transform: `translateY(${
+      scrolledDown ? 0 : `calc(${-(50 + heroOverflow)}vh - 40px)`
+    })`,
+  }
+
+  return (
+    <>
+      <Hero />
+      <Logo style={logoStyle} />
+      <HomeProductGrid />
+    </>
+  )
+}
+
+export const query = graphql`
+  query HomePageQuery {
+    shopifyCollection {
+      products {
+        id
+        images {
+          originalSrc
+        }
+        title
+        productType
+      }
+    }
+  }
+`
 
 export default IndexPage
