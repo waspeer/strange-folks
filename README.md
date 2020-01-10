@@ -3,4 +3,4 @@
 </div>
 <h1 align="center">Strange Folks</h1>
 
-This is the merchandise shop of Klangstof. It's build with Gatsby and Shopify. 
+This is the merchandise shop of [Klangstof](https://klangstof.com/). It's build with Gatsby and Shopify. 
