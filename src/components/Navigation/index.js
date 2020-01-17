@@ -1,31 +1,35 @@
-import React from "react"
-import PropTypes from "prop-types"
+import { Icon } from "antd"
+// import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useObservable } from "micro-observables"
-import { CartCounter, Container, MenuLink, Wrapper } from "./styles"
+import React, { useEffect, useRef } from "react"
 import { checkoutService } from "../../services"
+import { CartButton, Quantity } from "./styles"
 
-const Navigation = ({ siteTitle }) => {
+const Navigation = () => {
   const quantity = useObservable(checkoutService.quantity)
+  const loading = useObservable(checkoutService.isLoading)
+  const buttonRef = useRef()
+
+  useEffect(() => {
+    // retrigger bounce animation
+    buttonRef.current.style.animation = "none"
+    void buttonRef.current.offsetHeight
+    buttonRef.current.style.animation = null
+  }, [quantity])
 
   return (
-    <Wrapper>
-      <Container>
-        <MenuLink to="/">{siteTitle}</MenuLink>
-        <MenuLink to="/cart">
-          {quantity !== 0 && <CartCounter>{quantity}</CartCounter>}
-          Cart 🛍
-        </MenuLink>
-      </Container>
-    </Wrapper>
+    <CartButton ref={buttonRef} to="/cart">
+      {loading ? (
+        <Icon type="loading" />
+      ) : (
+        <>
+          <Icon type="shopping-cart" />
+          {!!quantity && <Quantity>{quantity}</Quantity>}
+        </>
+      )}
+    </CartButton>
   )
-}
-
-Navigation.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Navigation.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Navigation

@@ -1,40 +1,63 @@
-import styled from "@emotion/styled"
+import { withTheme } from "emotion-theming"
 import { Link } from "gatsby"
+import { keyframes } from "@emotion/core"
+import styled from "@emotion/styled"
+import { LightenDarkenColor } from "../../lib/helpers"
 
-import { breakpoints } from "../../lib/styles"
+const bounce = keyframes`
+  from, 20%, 53%, 80%, to {
+    transform: translate3d(0,0,0);
+  }
 
-export const Wrapper = styled.div`
-  background: rebeccapurple;
-  margin-bottom: 1.45rem;
-`
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1.45rem;
-  margin: 0 auto;
-  max-width: 960px;
-`
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
 
-export const MenuLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: bold;
-
-  @media (max-width: ${breakpoints.s}px) {
-    font-size: 1.4rem;
+  90% {
+    transform: translate3d(0,-4px,0);
   }
 `
 
-export const CartCounter = styled.span`
-  background-color: white;
-  color: #663399;
-  border-radius: 20px;
-  padding: 0 10px;
-  font-size: 1.2rem;
-  float: right;
-  margin: -10px;
-  z-index: 20;
+export const CartButton = withTheme(styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 15;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  background: ${({ theme }) => LightenDarkenColor(theme.backgroundColor, -10)};
+  color: white;
+  border: 1px solid lightgray;
+  border-radius: 2rem;
+  opacity: 0.85;
+  transition: all 0.2s;
+  cursor: pointer;
+  animation: ${bounce} 1s;
+
+  :hover {
+    opacity: 1;
+  }
+`)
+
+export const Quantity = styled.div`
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  font-size: 1rem;
+  color: white;
+  background: ${({ theme }) => theme.secondary};
+  font-weight: bold;
+  border-radius: 1rem;
+  line-height: 1rem;
+  text-align: center;
 `
