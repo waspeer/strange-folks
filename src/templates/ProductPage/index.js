@@ -1,18 +1,20 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import SEO from "../../components/seo"
+
+import { graphql } from "gatsby"
+import React from "react"
+import Slider from "react-slick"
+
 import ProductForm from "../../components/ProductForm"
+import SEO from "../../components/seo"
 import {
-  Img,
   Container,
-  TwoColumnGrid,
   GridLeft,
   GridRight,
+  Img,
+  TwoColumnGrid,
 } from "../../lib/styles"
-import { ProductTitle, ProductDescription } from "./styles"
+import { ProductDescription, ProductTitle } from "./styles"
 
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
@@ -30,7 +32,11 @@ const ProductPage = ({ data }) => {
       <Container>
         <TwoColumnGrid>
           <GridLeft>
-            <Slider autoplay>{images}</Slider>
+            {/* <Slider autoplay>{images}</Slider> */}
+            <Img
+              fluid={product.images[0].localFile.childImageSharp.fluid}
+              alt={product.title}
+            />
           </GridLeft>
           <GridRight>
             <ProductTitle>{product.title}</ProductTitle>
