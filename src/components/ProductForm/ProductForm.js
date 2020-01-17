@@ -1,88 +1,34 @@
-import React from "react"
+import { Button } from "antd"
 import PropTypes from "prop-types"
-import { Radio, InputNumber, Button } from "antd"
-import useProductFormController from "./useProductForm"
-
-import { css } from "@emotion/core"
-import styled from "@emotion/styled"
-
-export const Label = styled.label`
-  display: block;
-  font-weight: bold;
-
-  :not(:first-of-type) {
-    margin-top: 0.75rem;
-  }
-`
-
-const ProductOptionPicker = ({
-  options,
-  handleOptionChange,
-  checkOptionAvailability,
-}) => (
-  <>
-    {options.map(({ id, name, values }, index) => (
-      <>
-        <Label htmlFor={name}>{name} </Label>
-        <Radio.Group
-          name={name}
-          key={id}
-          onChange={event => handleOptionChange(index, event)}
-          defaultValue={values[0]}
-        >
-          {values.map(value => (
-            <Radio.Button
-              value={value}
-              key={`${name}-${value}`}
-              disabled={checkOptionAvailability(name, value)}
-            >
-              {value}
-            </Radio.Button>
-          ))}
-        </Radio.Group>
-      </>
-    ))}
-  </>
-)
-
-const QuantityPicker = ({ quantity, handleQuantityChange }) => (
-  <>
-    <Label htmlFor="quantity">Quantity </Label>
-    <InputNumber
-      id="quantity"
-      name="quantity"
-      min={1}
-      step={1}
-      onChange={handleQuantityChange}
-      value={quantity}
-      css={css`
-        display: block;
-        margin-bottom: 0.75rem;
-      `}
-    />
-  </>
-)
+import React from "react"
+import ProductOptionPicker from "./ProductOptionPicker"
+import QuantityPicker from "./QuantityPicker"
+import useProductFormController from "./_useProductForm"
 
 const ProductForm = ({ product }) => {
+  console.log(product)
+
   const {
     availableForSale,
-    checkOptionAvailability,
+    checkOptionIsUnavailable,
     handleAddToCart,
     handleOptionChange,
     handleQuantityChange,
     loading,
-    productOptions,
     price,
+    productOptions,
     quantity,
+    variant,
   } = useProductFormController(product)
 
   return (
     <>
       <h3>{price}</h3>
       <ProductOptionPicker
-        checkOptionAvailability={checkOptionAvailability}
+        checkOptionIsUnavailable={checkOptionIsUnavailable}
         handleOptionChange={handleOptionChange}
         options={productOptions}
+        value={variant.selectedOptions}
       />
       <QuantityPicker
         quantity={quantity}

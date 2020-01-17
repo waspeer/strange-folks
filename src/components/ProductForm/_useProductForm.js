@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
 import find from "lodash/find"
 import isEqual from "lodash/isEqual"
 import { useObservable } from "micro-observables"
-import { checkoutService, ProductService } from "../../services"
+import { useEffect, useState } from "react"
+import { ProductService, checkoutService } from "../../services"
 
 const useProductFormProductController = productDTO => {
   const productService = new ProductService(productDTO)
@@ -14,7 +14,7 @@ const useProductFormProductController = productDTO => {
     minimumFractionDigits: 2,
     style: "currency",
   }).format(variant.price)
-  const checkOptionAvailability = (name, value) => {
+  const checkOptionIsUnavailable = (name, value) => {
     const match = find(product.variants, {
       selectedOptions: [
         {
@@ -27,8 +27,7 @@ const useProductFormProductController = productDTO => {
     if (match.availableForSale === true) return false
     return true
   }
-  const handleOptionChange = (optionIndex, { target }) => {
-    const { value } = target
+  const handleOptionChange = (optionIndex, value) => {
     const currentOptions = [...variant.selectedOptions]
 
     currentOptions[optionIndex] = {
@@ -50,7 +49,7 @@ const useProductFormProductController = productDTO => {
 
   return {
     availableForSale,
-    checkOptionAvailability,
+    checkOptionIsUnavailable,
     handleOptionChange,
     productOptions: product.options,
     price,
