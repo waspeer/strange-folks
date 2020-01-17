@@ -1,10 +1,10 @@
-import React from "react"
 import { graphql } from "gatsby"
-import { useWindowScrollPosition, useWindowSize } from "../lib"
-import Layout from "../components/Layout"
-import Logo from "../components/Logo"
+import React from "react"
 import Hero from "../components/Hero/"
 import HomeProductGrid from "../components/HomeProductGrid"
+import Logo from "../components/Logo"
+import Modal from "../components/Modal"
+import { useWindowScrollPosition, useWindowSize } from "../lib"
 import { heroOverflow } from "../lib/styles"
 
 const IndexPage = ({ data }) => {
