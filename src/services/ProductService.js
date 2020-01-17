@@ -1,5 +1,5 @@
-import shopifyClient from "./_shopifyClient"
 import { observable } from "micro-observables"
+import shopifyClient from "./_shopifyClient"
 
 export default class ProductService {
   _product = observable({
@@ -31,7 +31,13 @@ export default class ProductService {
   }
 
   constructor(product) {
-    const initialVariant = product.variants ? product.variants[0] || {} : {}
+    let initialVariant
+    if (product.variants) {
+      initialVariant = product.variants.find(
+        product => product.availableForSale
+      )
+    }
+    initialVariant = initialVariant ? initialVariant : {}
 
     this._product.set(product)
     this.setVariant(initialVariant)

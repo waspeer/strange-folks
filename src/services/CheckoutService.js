@@ -1,7 +1,8 @@
-import shopifyClient from "./_shopifyClient"
-import { observable } from "micro-observables"
 import reduce from "lodash/reduce"
+import { observable } from "micro-observables"
+
 import { isBrowser } from "../lib"
+import shopifyClient from "./_shopifyClient"
 
 export default class CheckoutService {
   _checkout = observable({ lineItems: [] })
@@ -71,6 +72,17 @@ export default class CheckoutService {
 
     return shopifyClient.checkout
       .addLineItems(this._checkout.get().id, [lineItem])
+      .then(checkout => {
+        this._checkout.set(checkout)
+        this._loading.set(false)
+      })
+  }
+
+  removeLineItem(lineItemId) {
+    this._loading.set(true)
+
+    return shopifyClient.checkout
+      .removeLineItems(this._checkout.get().id, [lineItemId])
       .then(checkout => {
         this._checkout.set(checkout)
         this._loading.set(false)
