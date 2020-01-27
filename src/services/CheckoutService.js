@@ -1,11 +1,10 @@
 import reduce from "lodash/reduce"
 import { observable } from "micro-observables"
 
-import { isBrowser } from "../lib"
-import shopifyClient from "./_shopifyClient"
+import { isBrowser } from "#lib/helpers"
 
 export default class CheckoutService {
-  _checkout = observable({ lineItems: [] })
+  _checkout = observable({})
   _loading = observable(false)
 
   get checkout() {
@@ -23,22 +22,21 @@ export default class CheckoutService {
     })
   }
 
-  constructor() {
-    this.init()
+  constructor(shopifyClient) {
+    this.shopifyClient = shopifyClient
+    if (isBrowser) this.init()
   }
 
   async init() {
     this._loading.set(true)
 
-    const checkoutIdOrNull = isBrowser
-      ? localStorage.getItem("shopify_checkout_id")
-      : null
+    const checkoutIdOrNull = localStorage.getItem("shopify_checkout_id")
     let persistedCheckout
 
     if (checkoutIdOrNull !== null) {
       const checkoutId = checkoutIdOrNull
       try {
-        persistedCheckout = await shopifyClient.checkout.fetch(checkoutId)
+        persistedCheckout = await this.shopifyClient.checkout.fetch(checkoutId)
 
         if (persistedCheckout.completedAt) {
           persistedCheckout = null
@@ -51,11 +49,9 @@ export default class CheckoutService {
 
     const checkout = persistedCheckout
       ? persistedCheckout
-      : await shopifyClient.checkout.create()
+      : await this.shopifyClient.checkout.create()
 
-    if (isBrowser) {
-      localStorage.setItem("shopify_checkout_id", checkout.id)
-    }
+    localStorage.setItem("shopify_checkout_id", checkout.id)
 
     this._checkout.set(checkout)
     this._loading.set(false)
@@ -68,20 +64,26 @@ export default class CheckoutService {
       )
     }
 
+    this._loading.set(true)
     const lineItem = { variantId, quantity: parseInt(quantity, 10) }
 
-    return shopifyClient.checkout
+    return this.shopifyClient.checkout
       .addLineItems(this._checkout.get().id, [lineItem])
       .then(checkout => {
         this._checkout.set(checkout)
         this._loading.set(false)
+        return true
+      })
+      .catch(e => {
+        console.error(e)
+        return false
       })
   }
 
   removeLineItem(lineItemId) {
     this._loading.set(true)
 
-    return shopifyClient.checkout
+    return this.shopifyClient.checkout
       .removeLineItems(this._checkout.get().id, [lineItemId])
       .then(checkout => {
         this._checkout.set(checkout)

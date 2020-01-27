@@ -1,7 +1,7 @@
-import { InputNumber } from "antd"
-import PropTypes from "prop-types"
-import React from "react"
 import { css } from "@emotion/core"
+import { InputNumber } from "antd"
+import React from "react"
+
 import { Label } from "../styles"
 
 const QuantityPicker = ({ quantity, handleQuantityChange }) => (
@@ -15,16 +15,11 @@ const QuantityPicker = ({ quantity, handleQuantityChange }) => (
       onChange={handleQuantityChange}
       value={quantity}
       css={css`
-        display: block;
         margin-bottom: 0.75rem;
+        width: 100%;
       `}
     />
   </>
 )
-
-QuantityPicker.propTypes = {
-  quantity: PropTypes.number,
-  handleQuantityChange: PropTypes.func,
-}
 
 export default QuantityPicker

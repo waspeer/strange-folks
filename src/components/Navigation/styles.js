@@ -1,8 +1,9 @@
-import { withTheme } from "emotion-theming"
-import { Link } from "gatsby"
 import { keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
-import { LightenDarkenColor } from "../../lib/helpers"
+import { withTheme } from "emotion-theming"
+import { Link } from "gatsby"
+
+import { LightenDarkenColor } from "#lib/helpers"
 
 const bounce = keyframes`
   from, 20%, 53%, 80%, to {

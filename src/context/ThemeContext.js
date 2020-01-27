@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react"
 import { ThemeProvider as EmotionThemeProvider } from "emotion-theming"
 import PropTypes from "prop-types"
-import { useDayNight, createTheme, GlobalStyle } from "../lib"
+import React, { useEffect, useState } from "react"
+
+import { useDayNight } from "#lib/hooks"
+import { GlobalStyle } from "#lib/styles"
+import createTheme from "#lib/theme"
 
 const ThemeToggleContext = React.createContext({
   setMode: () => {},

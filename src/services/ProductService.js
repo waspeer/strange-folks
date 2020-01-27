@@ -1,55 +1,29 @@
-import { observable } from "micro-observables"
-import shopifyClient from "./_shopifyClient"
-
 export default class ProductService {
-  _product = observable({
-    variants: [],
-  })
-  _variantId = observable()
-
-  get product() {
-    return this._product.readOnly()
+  constructor(shopifyClient) {
+    this.shopifyClient = shopifyClient
   }
 
-  get variant() {
-    return this._variantId.transform(it =>
-      this._product.get().variants.find(v => v.id === it)
+  findFirstAvailableVariant(variants) {
+    return variants.find(variant => variant.availableForSale) || variants[0]
+  }
+
+  checkVariantAvailability(product, options) {
+    const variant = this.variantForOptions(product, options)
+    if (!variant) return false
+    if (!variant.availableForSale) return false
+    return true
+  }
+
+  variantForOptions(product, options) {
+    return this.shopifyClient.product.helpers.variantForOptions(
+      product,
+      options
     )
   }
 
-  setVariant(options) {
-    const variant =
-      shopifyClient.product.helpers.variantForOptions(
-        this._product.get(),
-        options
-      ) || options
-    this._variantId.set(variant.id)
-  }
-
-  get availableForSale() {
-    return this.variant.transform(it => it.availableForSale)
-  }
-
-  constructor(product) {
-    let initialVariant
-    if (product.variants) {
-      initialVariant = product.variants.find(
-        product => product.availableForSale
-      )
-    }
-    initialVariant = initialVariant ? initialVariant : {}
-
-    this._product.set(product)
-    this.setVariant(initialVariant)
-  }
-
-  async fetchCurrentProductDetails() {
-    const productId = this._product.get().shopifyId
-    const product = await shopifyClient.product.fetch(productId)
-    this._product.update(staleProduct => ({
-      ...staleProduct,
-      ...ProductMapper.toDTO(product),
-    }))
+  async fetchCurrentProductDetails(productId) {
+    const product = await this.shopifyClient.product.fetch(productId)
+    return ProductMapper.toDTO(product)
   }
 }
 

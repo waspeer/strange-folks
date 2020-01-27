@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
 import { keyframes } from "@emotion/core"
-import { heroOverflow } from "../../lib/styles"
+
+import { heroOverflow } from "#lib/styles"
 
 export const HeroContainer = styled.div`
   position: relative;

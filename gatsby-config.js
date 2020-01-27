@@ -2,14 +2,16 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
-    title: `KLANG Shop`,
+    title: `K L A N G S T O F`,
     description: `Find all the Klangstof goodies here.`,
     author: `Klangstof`,
   },
   plugins: [
-    // `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,18 +43,27 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     // icon: `src/images/gatsby-icon.png`,
-    //   },
-    // },
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        "#components": path.join(__dirname, "src/components"),
+        "#context": path.join(__dirname, "src/context"),
+        "#lib": path.join(__dirname, "src/lib"),
+        "#services": path.join(__dirname, "src/services"),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `K L A N G S T O F shop`,
+        short_name: `K L A N G S T O F`,
+        start_url: `/`,
+        background_color: `#ff88d9`,
+        theme_color: `#ff88d9`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }

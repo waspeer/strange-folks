@@ -1,18 +1,25 @@
 import { useState, useEffect } from "react"
 import throttle from "lodash.throttle"
 
+import { isBrowser } from "#lib/helpers"
+
+const getWindowScrollPosition = () =>
+  isBrowser
+    ? {
+        x: window.scrollX,
+        y: window.scrollY,
+      }
+    : { x: 0, y: 0 }
+
 export function useWindowScrollPosition() {
-  const defaultPosition = { x: 0, y: 0 }
-  const [position, setPosition] = useState(defaultPosition)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      setPosition(
-        typeof window !== "undefined"
-          ? { x: window.scrollX, y: window.scrollY }
-          : defaultPosition
-      )
+      setPosition(getWindowScrollPosition())
     }, 100)
+
+    setPosition(getWindowScrollPosition())
 
     window.addEventListener("scroll", handleScroll)
 
@@ -20,7 +27,7 @@ export function useWindowScrollPosition() {
       handleScroll.cancel()
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [defaultPosition])
+  }, [])
 
   return position
 }

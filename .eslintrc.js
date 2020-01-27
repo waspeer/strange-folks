@@ -6,7 +6,7 @@ module.exports = {
     __PATH_PREFIX__: true,
     __BASE_PATH__: true, // this will rarely, if ever, be used by consumers
   },
-  extends: [`react-app`],
+  extends: [`react-app`, `plugin:prettier/recommended`],
   plugins: [`graphql`],
   rules: {
     "import/no-webpack-loader-syntax": [0],

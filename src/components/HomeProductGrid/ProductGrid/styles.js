@@ -1,22 +1,23 @@
-import React from "react"
+import GatsbyImg from "gatsby-image"
 import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
-
-import { breakpoints, Img as StyledImg } from "../../../lib/styles"
+import React from "react"
 import Tilt from "react-tilt"
+
+import { breakpoints } from "#lib/styles"
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(25%, max-content));
+  justify-content: center;
   overflow: hidden;
 
   @media (max-width: ${breakpoints.m}px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(50%, max-content));
   }
 
   @media (max-width: ${breakpoints.s}px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, 100%);
   }
 `
 
@@ -49,7 +50,16 @@ export const Title = ({ children }) => (
   </TitleWrapper>
 )
 
-export const Img = styled(StyledImg)`
+export const Img = styled(GatsbyImg)`
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
   transition: all 0.2s;
 `
 
@@ -61,6 +71,7 @@ export const Product = styled(Tilt)`
   justify-content: center;
   position: relative;
   transform-style: preserve-3d;
+  padding: 1.25rem;
 
   ${TitleWrapper} {
     opacity: 0;
