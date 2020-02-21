@@ -55,8 +55,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `K L A N G S T O F shop`,
-        short_name: `K L A N G S T O F`,
+        name: `klangstof merchandise shop`,
+        short_name: `klangstof shop`,
         start_url: `/`,
         background_color: `#ff88d9`,
         theme_color: `#ff88d9`,
