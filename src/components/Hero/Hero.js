@@ -1,4 +1,4 @@
-import { Icon } from "antd"
+import { ArrowDownOutlined } from "@ant-design/icons"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
@@ -52,9 +52,8 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroArrow>
-          <Icon
+          <ArrowDownOutlined
             style={{ cursor: "pointer" }}
-            type="arrow-down"
             onClick={scrollToProducts}
           />
         </HeroArrow>

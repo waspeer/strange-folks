@@ -1,4 +1,5 @@
-import { Button, Icon, notification, Spin, Typography } from "antd"
+import { MehOutlined, SmileOutlined } from "@ant-design/icons"
+import { Button, notification, Spin, Typography } from "antd"
 import { Link } from "gatsby"
 import { useObservable } from "micro-observables"
 import PropTypes from "prop-types"
@@ -62,13 +63,13 @@ const ProductForm = props => {
             Your order was added to <Link to="/cart">your cart</Link>
           </span>
         ),
-        icon: <Icon type="smile" />,
+        icon: <SmileOutlined />,
       }
     } else {
       notificationMessage = {
         message: "Woops...",
         description: "Something went wrong, please try again later.",
-        icon: <Icon type="meh" />,
+        icon: <MehOutlined />,
       }
     }
 

@@ -1,4 +1,4 @@
-import { Icon } from "antd"
+import { ShoppingCartOutlined, LoadingOutlined } from "@ant-design/icons"
 import { useObservable } from "micro-observables"
 import React, { useEffect, useRef } from "react"
 
@@ -21,10 +21,10 @@ const Navigation = () => {
   return (
     <CartButton ref={buttonRef} to="/cart">
       {loading ? (
-        <Icon type="loading" />
+        <LoadingOutlined />
       ) : (
         <>
-          <Icon type="shopping-cart" />
+          <ShoppingCartOutlined />
           {!!quantity && <Quantity>{quantity}</Quantity>}
         </>
       )}

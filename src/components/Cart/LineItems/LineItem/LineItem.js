@@ -1,3 +1,4 @@
+import { DeleteOutlined } from "@ant-design/icons"
 import { Avatar, Button, Typography } from "antd"
 import PropTypes from "prop-types"
 import React from "react"
@@ -39,7 +40,7 @@ const LineItem = ({ lineItem }) => {
         </Typography.Text>
       </ProductDetails>
       <Button
-        icon="delete"
+        icon={<DeleteOutlined />}
         onClick={handleRemove}
         shape="circle"
         style={{ float: "right" }}
