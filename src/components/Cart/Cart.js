@@ -16,8 +16,6 @@ const Cart = () => {
   const checkout = useObservable(checkoutService.checkout)
   const loading = useObservable(checkoutService.isLoading)
 
-  console.log(checkout)
-
   const handleCheckout = () => {
     window.open(checkout.webUrl)
   }
@@ -50,6 +48,9 @@ const Cart = () => {
             totalPrice={checkout.totalPrice}
           />
           <br />
+          <p>
+            <strong>Shipping can take 5-7 days</strong>
+          </p>
           <CheckoutButton disabled={cartIsEmpty} onClick={handleCheckout} />
         </Wrapper>
       </Spin>

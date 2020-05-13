@@ -1,3 +1,4 @@
+import { Alert } from "antd"
 import { Link } from "gatsby"
 import React from "react"
 
@@ -12,6 +13,14 @@ const CartPage = () => (
       <Logo />
     </Link>
     <Cart />
+    <Alert
+      type="warning"
+      showIcon
+      style={{ maxWidth: 500, margin: "0 auto" }}
+      message=" Due to the current circumstances surrounding Covid-19 delivery can take
+      longer than expected so please bear with us. Thanks for your continued
+      support."
+    />
   </>
 )
 
