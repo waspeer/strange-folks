@@ -37,9 +37,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-less",
       options: {
-        javascriptEnabled: true,
-        modifyVars: {
-          "primary-color": "#ff88d9",
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: {
+            "primary-color": "#ff88d9",
+          },
         },
       },
     },
