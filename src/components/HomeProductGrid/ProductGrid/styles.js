@@ -1,6 +1,6 @@
 import GatsbyImg from "gatsby-image"
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
+import { withTheme } from "@emotion/react"
 import React from "react"
 import Tilt from "react-tilt"
 

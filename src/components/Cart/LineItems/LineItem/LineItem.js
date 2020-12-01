@@ -25,7 +25,7 @@ const LineItem = ({ lineItem }) => {
 
   const selectedOptions = lineItem.variant.selectedOptions
     ? lineItem.variant.selectedOptions.map(
-        option => `${option.name}: ${option.value} `
+        (option) => `${option.name}: ${option.value} `
       )
     : null
 

@@ -19,7 +19,7 @@ const formatPrice = (price, currencyCode) =>
     style: "currency",
   }).format(price)
 
-const ProductForm = props => {
+const ProductForm = (props) => {
   const loading = useObservable(checkoutService.isLoading)
   const [product, setProduct] = useState(props.product)
   const [variant, setVariant] = useState(
@@ -38,7 +38,7 @@ const ProductForm = props => {
       const currentProductData = await productService.fetchCurrentProductDetails(
         product.shopifyId
       )
-      setProduct(product => ({
+      setProduct((product) => ({
         ...product,
         ...currentProductData,
       }))
@@ -76,12 +76,12 @@ const ProductForm = props => {
     notification.open(notificationMessage)
   }
 
-  const handleOptionsChange = options => {
+  const handleOptionsChange = (options) => {
     const variant = productService.variantForOptions(product, options)
     setVariant(variant)
   }
 
-  const checkVariantAvailability = options => {
+  const checkVariantAvailability = (options) => {
     return productService.checkVariantAvailability(product, options)
   }
 

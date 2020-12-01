@@ -1,6 +1,6 @@
-import { keyframes } from "@emotion/core"
+import { keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
+import { withTheme } from "@emotion/react"
 import { Link } from "gatsby"
 
 import { LightenDarkenColor } from "#lib/helpers"

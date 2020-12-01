@@ -1,4 +1,4 @@
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { InputNumber } from "antd"
 import React from "react"
 
