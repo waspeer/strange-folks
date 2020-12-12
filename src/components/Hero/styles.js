@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
-import { keyframes } from "@emotion/core"
+import { withTheme } from "@emotion/react"
+import { keyframes } from "@emotion/react"
 
 import { heroOverflow } from "#lib/styles"
 
@@ -22,7 +22,7 @@ export const HeroBg = withTheme(styled.div`
     width: 100%;
     background: linear-gradient(
       rgba(0, 0, 0, 0),
-      ${props => props.theme.backgroundColor}
+      ${(props) => props.theme.backgroundColor}
     );
   }
 `)

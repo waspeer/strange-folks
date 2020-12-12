@@ -16,7 +16,7 @@ export default class CheckoutService {
   }
 
   get quantity() {
-    return this._checkout.transform(it => {
+    return this._checkout.transform((it) => {
       if (!it.lineItems) return 0
       return reduce(it.lineItems, (acc, item) => acc + item.quantity, 0)
     })
@@ -69,12 +69,12 @@ export default class CheckoutService {
 
     return this.shopifyClient.checkout
       .addLineItems(this._checkout.get().id, [lineItem])
-      .then(checkout => {
+      .then((checkout) => {
         this._checkout.set(checkout)
         this._loading.set(false)
         return true
       })
-      .catch(e => {
+      .catch((e) => {
         console.error(e)
         return false
       })
@@ -85,7 +85,7 @@ export default class CheckoutService {
 
     return this.shopifyClient.checkout
       .removeLineItems(this._checkout.get().id, [lineItemId])
-      .then(checkout => {
+      .then((checkout) => {
         this._checkout.set(checkout)
         this._loading.set(false)
       })

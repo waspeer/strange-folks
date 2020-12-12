@@ -7,7 +7,7 @@ module.exports = {
     __BASE_PATH__: true, // this will rarely, if ever, be used by consumers
   },
   extends: [`react-app`, `plugin:prettier/recommended`],
-  plugins: [`graphql`],
+  plugins: [`graphql`, `@emotion`],
   rules: {
     "import/no-webpack-loader-syntax": [0],
     // "graphql/template-strings": [
@@ -59,5 +59,6 @@ module.exports = {
     "jsx-a11y/role-supports-aria-props": `warn`,
     "jsx-a11y/scope": `warn`,
     "jsx-a11y/tabindex-no-positive": `warn`,
+    "@emotion/pkg-renaming": "error"
   },
 }

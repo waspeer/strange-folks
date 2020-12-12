@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
+import { withTheme } from "@emotion/react"
 
 export const FilterLinkListElement = withTheme(styled.ul`
   font-family: Arial, Helvetica, sans-serif;

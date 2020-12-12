@@ -46,7 +46,7 @@ const HomeProductGrid = () => {
     setGuardHeight(productGrid.current.clientHeight)
   }, [typeFilter, windowSize])
   const filters = new Set(
-    data.shopifyCollection.products.map(p => p.productType).sort()
+    data.shopifyCollection.products.map((p) => p.productType).sort()
   )
   return (
     <HomeGridWrapper id="products">
@@ -66,5 +66,5 @@ export default HomeProductGrid
 
 function getVisibleProducts(products, typeFilter) {
   if (typeFilter === "all") return products
-  else return products.filter(p => p.productType === typeFilter)
+  else return products.filter((p) => p.productType === typeFilter)
 }

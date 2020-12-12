@@ -1,6 +1,6 @@
-import { Global, css } from "@emotion/core"
+import { Global, css } from "@emotion/react"
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
+import { withTheme } from "@emotion/react"
 import React from "react"
 
 // TODO: REFACTOR INTO COMPONENTS move all components etc to the component folder

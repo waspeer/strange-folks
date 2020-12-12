@@ -4,7 +4,7 @@ export default class ProductService {
   }
 
   findFirstAvailableVariant(variants) {
-    return variants.find(variant => variant.availableForSale) || variants[0]
+    return variants.find((variant) => variant.availableForSale) || variants[0]
   }
 
   checkVariantAvailability(product, options) {
@@ -30,16 +30,16 @@ export default class ProductService {
 class ProductMapper {
   static toDTO(graphQLProduct) {
     return {
-      options: graphQLProduct.options.map(o => ({
+      options: graphQLProduct.options.map((o) => ({
         id: o.id,
         name: o.name,
-        values: o.values.map(v => v.value),
+        values: o.values.map((v) => v.value),
       })),
-      variants: graphQLProduct.variants.map(v => ({
+      variants: graphQLProduct.variants.map((v) => ({
         availableForSale: v.available,
         id: `Shopify__ProductVariant__${v.id}`,
         price: v.price,
-        selectedOptions: v.selectedOptions.map(o => ({
+        selectedOptions: v.selectedOptions.map((o) => ({
           name: o.name,
           value: o.value,
         })),

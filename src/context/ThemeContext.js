@@ -1,4 +1,4 @@
-import { ThemeProvider as EmotionThemeProvider } from "emotion-theming"
+import { ThemeProvider as EmotionThemeProvider } from "@emotion/react"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 

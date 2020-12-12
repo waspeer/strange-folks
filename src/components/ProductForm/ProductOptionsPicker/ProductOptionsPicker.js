@@ -1,4 +1,4 @@
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { Radio } from "antd"
 import React from "react"
 
@@ -23,7 +23,7 @@ const ProductOptionsPicker = ({
           <Radio.Group
             name={name}
             key={"picker-radiogrp-" + id}
-            onChange={event =>
+            onChange={(event) =>
               handleOptionsChange({ [name]: event.target.value })
             }
             css={css`
@@ -31,7 +31,7 @@ const ProductOptionsPicker = ({
             `}
             value={selectedValue}
           >
-            {values.map(value => (
+            {values.map((value) => (
               <Radio.Button
                 value={value}
                 key={`${name}-${value}`}
