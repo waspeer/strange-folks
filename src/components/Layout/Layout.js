@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
 import PropTypes from "prop-types"
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Navigation from "#components/Navigation"
 
@@ -22,14 +23,23 @@ const Footer = withTheme(styled.div`
 `)
 
 const Layout = ({ children }) => (
-  <Wrapper>
-    <Navigation />
-    <Content>{children}</Content>
-    <Footer>
-      Contact us at <a href="mailto:klangstof@gmail.com">klangstof@gmail.com</a>{" "}
-      <em>(Erik Buschmann)</em>
-    </Footer>
-  </Wrapper>
+  <>
+    <Helmet>
+      <meta
+        name="facebook-domain-verification"
+        content="99g0bvxttw6z7n2j66et4qe70iyx3l"
+      />
+    </Helmet>
+    <Wrapper>
+      <Navigation />
+      <Content>{children}</Content>
+      <Footer>
+        Contact us at{" "}
+        <a href="mailto:klangstof@gmail.com">klangstof@gmail.com</a>{" "}
+        <em>(Erik Buschmann)</em>
+      </Footer>
+    </Wrapper>
+  </>
 )
 
 Layout.propTypes = {
