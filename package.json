@@ -54,7 +54,7 @@
     "eslint-plugin-react-hooks": "4.x",
     "gatsby-plugin-less": "^4.2.0",
     "gatsby-plugin-root-import": "^2.0.5",
-    "less": "^3.12.2",
+    "less": "^4.0.0",
     "prettier": "^2.2.1"
   },
   "keywords": [
