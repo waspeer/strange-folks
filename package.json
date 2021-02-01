@@ -53,7 +53,7 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "4.x",
     "gatsby-plugin-less": "^4.4.0",
-    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-root-import": "^2.0.6",
     "less": "^4.0.0",
     "prettier": "^2.2.1"
   },
