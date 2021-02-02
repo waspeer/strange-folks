@@ -4,9 +4,6 @@ import { observable } from "micro-observables"
 import { isBrowser } from "#lib/helpers"
 
 export default class CheckoutService {
-  _checkout = observable({})
-  _loading = observable(false)
-
   get checkout() {
     return this._checkout.readOnly()
   }
@@ -23,6 +20,8 @@ export default class CheckoutService {
   }
 
   constructor(shopifyClient) {
+    this._checkout = observable({})
+    this._loading = observable(false)
     this.shopifyClient = shopifyClient
     if (isBrowser) this.init()
   }
