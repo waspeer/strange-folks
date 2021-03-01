@@ -6,7 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@ant-design/icons": "^4.4.0",
-    "@emotion/react": "^11.1.4",
+    "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.0.0",
     "antd": "^4.11.2",
     "babel-plugin-import": "^1.13.3",
