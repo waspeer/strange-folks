@@ -1,0 +1,66 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: eslint
+    versions:
+    - 7.17.0
+    - 7.19.0
+    - 7.21.0
+  - dependency-name: gatsby-source-filesystem
+    versions:
+    - 2.10.0
+    - 2.11.1
+  - dependency-name: eslint-plugin-react
+    versions:
+    - 7.22.0
+  - dependency-name: gatsby
+    versions:
+    - 2.32.8
+  - dependency-name: "@ant-design/icons"
+    versions:
+    - 4.4.0
+    - 4.5.0
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.14.1
+    - 4.14.2
+    - 4.15.2
+  - dependency-name: gatsby-plugin-manifest
+    versions:
+    - 2.12.1
+  - dependency-name: gatsby-plugin-sharp
+    versions:
+    - 2.14.3
+  - dependency-name: gatsby-plugin-react-helmet
+    versions:
+    - 3.10.0
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.11.1
+    - 4.14.1
+    - 4.14.2
+    - 4.15.2
+  - dependency-name: "@emotion/react"
+    versions:
+    - 11.1.5
+  - dependency-name: gatsby-plugin-layout
+    versions:
+    - 1.9.0
+  - dependency-name: gatsby-source-shopify
+    versions:
+    - 3.9.0
+  - dependency-name: antd
+    versions:
+    - 4.11.2
+  - dependency-name: gatsby-plugin-root-import
+    versions:
+    - 2.0.6
+  - dependency-name: socket.io
+    versions:
+    - 2.4.1
