@@ -14,17 +14,16 @@
   resolved "https://registry.yarnpkg.com/@ant-design/icons-svg/-/icons-svg-4.1.0.tgz#480b025f4b20ef7fe8f47d4a4846e4fee84ea06c"
   integrity sha512-Fi03PfuUqRs76aI3UWYpP864lkrfPo0hluwGqh7NJdLhvH4iRDc3jbJqZIvRDLHKbXrvAfPPV3+zjUccfFvWOQ==
 
-"@ant-design/icons@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-4.5.0.tgz#dc5ceff85503932265143dc5c3013167daa3f754"
-  integrity sha512-ZAKJcmr4DBV3NWr8wm2dCxNKN4eFrX+qCaPsuFejP6FRsf+m5OKxvCVi9bSp1lmKWeOI5yECAx5s0uFm4QHuPw==
+"@ant-design/icons@^4.5.0", "@ant-design/icons@^4.6.2":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-4.6.2.tgz#290f2e8cde505ab081fda63e511e82d3c48be982"
+  integrity sha512-QsBG2BxBYU/rxr2eb8b2cZ4rPKAPBpzAR+0v6rrZLp/lnyvflLH3tw1vregK+M7aJauGWjIGNdFmUfpAOtw25A==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-svg" "^4.0.0"
     "@babel/runtime" "^7.11.2"
     classnames "^2.2.6"
-    insert-css "^2.0.0"
-    rc-util "^5.0.1"
+    rc-util "^5.9.4"
 
 "@ant-design/react-slick@~0.28.1":
   version "0.28.2"
@@ -7972,11 +7971,6 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-insert-css@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/insert-css/-/insert-css-2.0.0.tgz#eb5d1097b7542f4c79ea3060d3aee07d053880f4"
-  integrity sha1-610Ql7dUL0x56jBg067gfQU4gPQ=
-
 internal-ip@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-4.3.0.tgz#845452baad9d2ca3b69c635a137acb9a0dad0907"
@@ -11834,10 +11828,10 @@ rc-upload@~4.0.0-alpha.6:
     classnames "^2.2.5"
     rc-util "^5.2.0"
 
-rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.5, rc-util@^5.0.6, rc-util@^5.0.7, rc-util@^5.2.0, rc-util@^5.2.1, rc-util@^5.3.0, rc-util@^5.4.0, rc-util@^5.5.0, rc-util@^5.5.1, rc-util@^5.6.1, rc-util@^5.7.0, rc-util@^5.8.0, rc-util@^5.8.1:
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.8.1.tgz#e3630abfb92b40becb31476cee136d65e80e02e0"
-  integrity sha512-kXV/QjL+azh3AxMk68gm8+nltVoL6bjeJJULAZLRCLus2Fhvo/aaMZokxYov/E0dbfjo31I78pF4yVljqQB7bA==
+rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.5, rc-util@^5.0.6, rc-util@^5.0.7, rc-util@^5.2.0, rc-util@^5.2.1, rc-util@^5.3.0, rc-util@^5.4.0, rc-util@^5.5.0, rc-util@^5.5.1, rc-util@^5.6.1, rc-util@^5.7.0, rc-util@^5.8.0, rc-util@^5.8.1, rc-util@^5.9.4:
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.12.1.tgz#026e889546ad957bd8201512951923821f6dab63"
+  integrity sha512-PrvX/LUPONoeIaJ35hiS5SeXP6DhwAfpoJG6X4Kc5X7NDgCgk/NfXrNfmijuSh8suHkWk1Quz93d2JdjomwOQA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     react-is "^16.12.0"
@@ -14392,10 +14386,8 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
