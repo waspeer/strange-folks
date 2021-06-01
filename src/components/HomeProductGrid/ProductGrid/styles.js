@@ -1,4 +1,4 @@
-import GatsbyImg from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 import { withTheme } from "@emotion/react"
 import React from "react"
@@ -50,7 +50,7 @@ export const Title = ({ children }) => (
   </TitleWrapper>
 )
 
-export const Img = styled(GatsbyImg)`
+export const Img = styled(GatsbyImage)`
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;

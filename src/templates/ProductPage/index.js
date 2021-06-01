@@ -29,7 +29,9 @@ const ProductPage = ({ data }) => {
         <TwoColumnGrid>
           <GridLeft>
             <Img
-              fluid={product.images[0].localFile.childImageSharp.fluid}
+              image={
+                product.images[0].localFile.childImageSharp.gatsbyImageData
+              }
               alt={product.title}
             />
           </GridLeft>
@@ -47,7 +49,7 @@ const ProductPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query($handle: String!) {
+  query ($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
       id
       title
@@ -87,9 +89,11 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 910) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(
+              width: 910
+              placeholder: TRACED_SVG
+              layout: CONSTRAINED
+            )
           }
         }
       }

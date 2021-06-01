@@ -23,9 +23,11 @@ const HomeProductGrid = () => {
               originalSrc
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 910) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  }
+                  gatsbyImageData(
+                    width: 910
+                    placeholder: TRACED_SVG
+                    layout: CONSTRAINED
+                  )
                 }
               }
             }

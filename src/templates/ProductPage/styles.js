@@ -1,4 +1,4 @@
-import GatsbyImg from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "@emotion/styled"
 
 import { breakpoints } from "#lib/styles"
@@ -7,7 +7,7 @@ export const ProductDescription = styled.div`
   font-weight: 300;
 `
 
-export const Img = styled(GatsbyImg)`
+export const Img = styled(GatsbyImage)`
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;

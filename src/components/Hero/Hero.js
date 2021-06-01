@@ -1,6 +1,6 @@
 import { ArrowDownOutlined } from "@ant-design/icons"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 
 import { useParallax, useWindowSize } from "#lib/hooks"
@@ -23,9 +23,7 @@ const Hero = () => {
     query HeroBackgroundQuery {
       file(relativePath: { eq: "hero-bg.png" }) {
         childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
@@ -41,8 +39,9 @@ const Hero = () => {
   return (
     <HeroContainer data-relative-input="true">
       <HeroBg ref={parallaxElement}>
-        <Img
-          fluid={heroBgImg.fluid}
+        <GatsbyImage
+          alt=""
+          image={heroBgImg.gatsbyImageData}
           style={{ height: "100%" }}
           imgStyle={{ objectPosition: "top center" }}
         />

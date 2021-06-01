@@ -11,7 +11,7 @@ const ProductGrid = React.forwardRef(({ products }, ref) => (
           <Link to={`/product/${handle}/`}>
             {firstImage && firstImage.localFile && (
               <Img
-                fluid={firstImage.localFile.childImageSharp.fluid}
+                image={firstImage.localFile.childImageSharp.gatsbyImageData}
                 alt={handle}
               />
             )}
