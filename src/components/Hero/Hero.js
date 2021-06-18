@@ -39,12 +39,12 @@ const Hero = () => {
   return (
     <HeroContainer data-relative-input="true">
       <HeroBg ref={parallaxElement}>
-        <GatsbyImage
+        {/* <GatsbyImage
           alt=""
           image={heroBgImg.gatsbyImageData}
           style={{ height: "100%" }}
           imgStyle={{ objectPosition: "top center" }}
-        />
+        /> */}
         <TextBgWrapper data-depth={parallaxFriction}>
           <TextBg />
         </TextBgWrapper>

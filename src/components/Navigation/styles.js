@@ -34,7 +34,7 @@ export const CartButton = withTheme(styled(Link)`
   width: 4rem;
   height: 4rem;
   font-size: 2rem;
-  background: ${({ theme }) => LightenDarkenColor(theme.backgroundColor, -10)};
+  background: ${({ theme }) => theme.primary};
   color: white;
   border: 1px solid lightgray;
   border-radius: 2rem;

@@ -10,6 +10,10 @@ module.exports = {
     description: `Find all the Klangstof goodies here.`,
     author: `Klangstof`,
   },
+  flags: {
+    FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

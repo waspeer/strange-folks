@@ -20,10 +20,7 @@ export const HeroBg = withTheme(styled.div`
     left: 0;
     height: ${heroOverflow * 2}vh;
     width: 100%;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0),
-      ${(props) => props.theme.backgroundColor}
-    );
+    background: linear-gradient(rgba(0, 0, 0, 0), #fff);
   }
 `)
 
@@ -70,7 +67,7 @@ export const HeroArrow = styled.div`
   position: absolute;
   bottom: 20px;
   left: 0;
-  color: white;
+  color: ${({ theme }) => theme.primary};
   width: 100%;
   font-size: 40px;
   animation: ${bounce} 2s infinite;

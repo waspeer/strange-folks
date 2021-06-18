@@ -15,9 +15,9 @@ const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useState("light")
   const theme = createTheme({ mode })
 
-  useEffect(() => {
-    setMode(day ? "light" : "dark")
-  }, [day])
+  // useEffect(() => {
+  //   setMode(day ? "light" : "dark")
+  // }, [day])
 
   return (
     <ThemeToggleContext.Provider value={{ setMode }}>
