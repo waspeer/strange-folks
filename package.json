@@ -22,7 +22,7 @@
     "gatsby-plugin-react-helmet": "^4.6.0",
     "gatsby-plugin-sharp": "^3.6.0",
     "gatsby-source-filesystem": "^3.6.0",
-    "gatsby-source-shopify": "^4.6.0",
+    "gatsby-source-shopify": "^5.0.2",
     "gatsby-transformer-sharp": "^3.6.0",
     "lodash.throttle": "^4.1.1",
     "micro-observables": "^1.7.0",
