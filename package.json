@@ -12,7 +12,7 @@
     "babel-plugin-import": "^1.13.3",
     "dotenv": "^10.0.0",
     "emotion-theming": "^11.0.0",
-    "gatsby": "^3.9.0",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^3.9.0",
     "gatsby-plugin-google-analytics": "^3.9.0",
     "gatsby-plugin-image": "^1.9.0",
